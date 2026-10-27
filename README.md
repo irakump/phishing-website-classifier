@@ -5,4 +5,4 @@ The assignment is divided into two parts:
 1. Decision Tree: Build an interpretable classifier, evaluate its performance, visualize the decision tree, and translate its rules into practical instructions for identifying phishing websites.  
 2. Random Forest: Train and evaluate a random forest classifier, experiment with hyperparameter tuning, and compare its performance with the decision tree.
 
-The project follows the CRISP-DM process model, covering the key stages of data understanding, data preparation, model development, and evaluation. 
+The project follows the CRISP-DM process, focusing on developing and evaluating machine learning models. Deploying the models is beyond the scope of this project.
