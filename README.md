@@ -6,3 +6,7 @@ The project consists of two parts:
 2. Random Forest: Train and evaluate a random forest classifier, experiment with hyperparameter tuning, and compare its performance with the decision tree.
 
 The project follows the CRISP-DM process, focusing on developing and evaluating machine learning models. Deploying the models is beyond the scope of this project.
+
+## Project Notebook
+
+Explore the complete project, including data analysis, model development, evaluation, and comparison, in the [Jupyter Notebook](https://github.com/irakump/phishing-website-classifier/blob/main/phishing-website-classifier.ipynb).
