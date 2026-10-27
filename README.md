@@ -9,4 +9,4 @@ The project follows the CRISP-DM process, focusing on developing and evaluating 
 
 ## Project Notebook
 
-Explore the complete project, including data analysis, model development, evaluation, and comparison, in the [Jupyter Notebook](https://github.com/irakump/phishing-website-classifier/blob/main/phishing-website-classifier.ipynb).
+View the complete project, including data analysis, model development, and evaluation, in the [Jupyter Notebook](https://github.com/irakump/phishing-website-classifier/blob/main/phishing-website-classifier.ipynb).
