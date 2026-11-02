@@ -31,3 +31,29 @@ In the confusion matrices, rows are the true classes and columns are the predict
 
 The random forest performs clearly better on both error types: it misses about half as many phishing sites as the decision tree (67 vs. 137) and raises far fewer false alarms (31 vs. 119). In total, the forest misclassifies 98 of the 2,764 test websites, compared with 256 for the tree.
 
+## Data
+ 
+The dataset has 11,055 websites described by 30 features, such as URL structure, SSL certificate state, where the page's links point to, and domain age and traffic. The target is `result` (-1 = phishing, 1 = legitimate). All features are already integers and there are no missing values, so no data preparation was needed. The data was split 75 % / 25 % into training (8,291 websites) and test (2,764 websites) sets, and the same split is used for both models.
+ 
+## Part 1: Decision Tree
+ 
+I first tried cost-complexity pruning, but the unpruned tree had the best validation accuracy (0.959) and every pruned version was worse. Because the goal was a tree a person can actually read, I limited the depth instead. Validation accuracy kept improving up to depth 10 (0.949), but I chose depth 4 (0.919) as a trade-off between accuracy and readability.
+ 
+The tree's first split is on `sslfinal_state`, and both branches then split on `url_of_anchor`. Together these two features already separate the data well. A low `sslfinal_state` combined with a low `url_of_anchor` is the clearest phishing signal: all 2,263 training sites in that group are phishing. On the other side, sites with a high `sslfinal_state` are mostly legitimate (4,252 of 4,759).
+ 
+The image below shows the top of the tree: the root and the first two levels. The full tree and a step-by-step checklist derived from it are in the notebook.
+ 
+![Top two levels of the decision tree](images/decision-tree-cropped.png)
+
+## Part 2: Random Forest
+ 
+I kept 100 trees and tuned `max_samples` and `max_features` (0.5, 0.7, 0.85 and 1.0), comparing all 16 combinations with 10-fold cross-validation on the training set. The best mean accuracy (0.9705) came from `max_samples=0.85` and `max_features=0.5`, which I used for the final model.
+ 
+The forest agrees with the tree about what matters most: `sslfinal_state` has an importance of 0.49 and `url_of_anchor` 0.21. Most of the remaining features contribute very little.
+ 
+## Limitations
+
+- The model comparison isn't completely fair, since the tree was limited to depth 4 and the forest's trees were not.
+- The dataset contains pre-extracted features. A real detector would have to compute them from live websites, and phishing techniques change over time.
+- I evaluated the models on one train/test split only.
+
