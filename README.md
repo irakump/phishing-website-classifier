@@ -1,6 +1,8 @@
 # Phishing Website Classifier
 A machine learning project for detecting phishing websites using Python and scikit-learn, based on the [Phishing Websites dataset](https://archive.ics.uci.edu/dataset/327/phishing+websites) from the UCI Machine Learning Repository.  
 
+View the full analysis in the [Jupyter Notebook](https://github.com/irakump/phishing-website-classifier/blob/main/phishing-website-classifier.ipynb).
+
 The project consists of two parts:  
 1. **Decision Tree**: Build an interpretable classifier, evaluate its performance, visualize the decision tree, and translate its rules into practical instructions for identifying phishing websites.  
 2. **Random Forest**: Train and evaluate a random forest classifier, experiment with hyperparameter tuning, and compare its performance with the decision tree.
@@ -29,6 +31,3 @@ In the confusion matrices, rows are the true classes and columns are the predict
 
 The random forest performs clearly better on both error types: it misses about half as many phishing sites as the decision tree (67 vs. 137) and raises far fewer false alarms (31 vs. 119). In total, the forest misclassifies 98 of the 2,764 test websites, compared with 256 for the tree.
 
-## Project Notebook
-
-View the complete project, including data analysis, model development, and evaluation, in the [Jupyter Notebook](https://github.com/irakump/phishing-website-classifier/blob/main/phishing-website-classifier.ipynb).
