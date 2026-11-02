@@ -52,8 +52,19 @@ I kept 100 trees and tuned `max_samples` and `max_features` (0.5, 0.7, 0.85 and 
 The forest agrees with the tree about what matters most: `sslfinal_state` has an importance of 0.49 and `url_of_anchor` 0.21. Most of the remaining features contribute very little.
  
 ## Limitations
-
+ 
 - The model comparison isn't completely fair, since the tree was limited to depth 4 and the forest's trees were not.
-- The dataset contains pre-extracted features. A real detector would have to compute them from live websites, and phishing techniques change over time.
-- I evaluated the models on one train/test split only.
+- The test results come from one train/test split only. Evaluating with repeated splits or cross-validation would show how stable the results are.
 
+## Tools
+ 
+Python, scikit-learn, NumPy, Matplotlib, Jupyter Notebook
+ 
+## Running the Notebook
+ 
+```bash
+pip install ucimlrepo scikit-learn numpy matplotlib jupyter
+jupyter notebook phishing-website-classifier.ipynb
+```
+ 
+The dataset is downloaded automatically with the `ucimlrepo` package, so no separate data files are needed.
