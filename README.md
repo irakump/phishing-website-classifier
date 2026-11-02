@@ -21,11 +21,13 @@ The following table compares the performance of the two models on the test set. 
 | Decision tree (max depth 4) | 0.91 | 0.90 | 0.89 |
 | Random forest (100 trees) | 0.96 | 0.97 | 0.95 |
 
-The confusion matrices below show the same comparison as counts of individual websites. Rows are the true classes and columns are the predicted ones, so the top-left cell is phishing sites correctly caught (true positive) and the top-right cell is phishing sites that slipped through as "legitimate" (false negative).  
-
-The random forest performs clearly better on both error types: it misses about half as many phishing sites as the decision tree (67 vs. 137) and raises far fewer false alarms (31 vs. 119). In total, the forest misclassifies 98 of the 2,764 test websites, compared with 256 for the tree.
+The confusion matrices below show the same comparison as counts of individual websites.
 
 <table> <tr> <td align="center"><b>Decision tree (max depth 4)</b></td> <td align="center"><b>Random forest (100 trees)</b></td> </tr> <tr> <td><img src="images/decision-tree-confusion-matrix.png" alt="Decision tree confusion matrix" width="100%"></td> <td><img src="images/random-forest-confusion-matrix.png" alt="Random forest confusion matrix" width="100%"></td> </tr> </table>
+
+In the confusion matrices, rows are the true classes and columns are the predicted ones, so the top-left cell is phishing sites correctly caught (true positive) and the top-right cell is phishing sites that slipped through as "legitimate" (false negative).  
+
+The random forest performs clearly better on both error types: it misses about half as many phishing sites as the decision tree (67 vs. 137) and raises far fewer false alarms (31 vs. 119). In total, the forest misclassifies 98 of the 2,764 test websites, compared with 256 for the tree.
 
 ## Project Notebook
 
